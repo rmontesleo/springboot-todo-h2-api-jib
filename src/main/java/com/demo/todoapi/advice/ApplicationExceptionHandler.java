@@ -20,7 +20,8 @@ public class ApplicationExceptionHandler {
                 .getBindingResult()
                 .getFieldErrors()
                 .stream()
-                .collect(Collectors.toMap( FieldError::getField, FieldError::getDefaultMessage )  );
+                .collect(Collectors.toMap(  FieldError::getField, FieldError::getDefaultMessage,
+                        (existing, replacement) -> existing ));
     }
 
 }

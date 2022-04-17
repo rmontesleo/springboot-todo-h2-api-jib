@@ -29,7 +29,7 @@ public class UserController {
     @GetMapping("/{userId}")
     public ResponseEntity<User> fetchUser(@PathVariable final long userId ){
         return  userService.findUserById( userId )
-                .map( user ->  ResponseEntity.ok(user) )
+                .map(ResponseEntity::ok)
                 .orElse( ResponseEntity.notFound().build() );
     }
 
@@ -44,8 +44,9 @@ public class UserController {
 
     @PostMapping("/login")
     public ResponseEntity<Long> login( @RequestBody @Valid final UserRequest user ){
+        log.debug("## User to save is {}", user );
         return userService.findByCredentials( user)
-                .map( existingItem -> ResponseEntity.ok( existingItem) )
+                .map(ResponseEntity::ok)
                 .orElse( ResponseEntity.notFound().build() );
     }
 

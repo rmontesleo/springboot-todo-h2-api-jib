@@ -90,7 +90,6 @@
 				<configuration>
 					<to>
 						<image>registry.hub.docker.com/rmontesleo/springboot-todo-h2-api-jib</image>
-
 					</to>
 				</configuration>
 			</plugin>
